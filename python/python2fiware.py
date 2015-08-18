@@ -16,7 +16,7 @@ pulse = mraa.Aio(1)
 
 while 1:
     lumVal = str(luminosity.read())
-    pulseVal = str(pulse.read()>100)
+    pulseVal = str(pulse.read()>100).lower()
     print lumVal
     print pulseVal
     payload = "l|"+lumVal+"#p|"+pulseVal
