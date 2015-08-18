@@ -1,10 +1,11 @@
-//################# LIBRARIES ################
+  
+  //################# LIBRARIES ################
   #include <SPI.h>
   #include <WiFi.h>
   
   //################# WIFI DETAILS #################
-  char ssid[] = "xxx"; //  your network SSID (name) 
-  char pass[] = "xxx";    // your network password (use for WPA, or use as key for WEP)
+  char ssid[] = "xxxxx";     // your network SSID (name) 
+  char pass[] = "xxxxx";    // your network password (use for WPA, or use as key for WEP)
   int keyIndex = 0;            // your network key Index number (needed only for WEP)
   int status = WL_IDLE_STATUS;
   
@@ -15,8 +16,13 @@
   WiFiClient client;
   
   //################ FIWARE VARIABLES ################
-  int value = 0;
-  char alias[] = "l";
+  char FIWARE_APIKEY[] = "xxxxxx";
+  char FIWARE_DEVICE[] = "myEdison";
+  
+  //################ SENSOR VARIABLES ################  
+  const int numsensors = 2;
+  String measures[numsensors][2];
+  
     
   
   void setup() 
@@ -34,19 +40,13 @@
   
   void loop() 
   {
-    // read luminosity sensor value on analogic PIN 0
-    readSensor();
-    // send luminosity value to FIWARE IoT Stack
-    postMeasure(alias, value);
-    // wait 10s between measures
-    delay(10000);  
+    // read sensors values on analogic PINs and send measures
+    readSensors();
+    postMeasures();
     
-    // if the server's disconnected, stop the client:
-    if (!client.connected()) {
-      Serial.println();
-      Serial.println("Disconnecting from wifi");
-      client.stop();
-    } 
+    // wait 1s between measures
+    delay(1000);  
+    
   }
  
   
@@ -79,29 +79,52 @@
   }
 
 
-  void readSensor()
+  void readSensors()
   {
-    //Attach the center pin of a potentiometer to pin A0, and the outside pins to +5V and ground.
-    //read the input on analog pin 0:
-    value = analogRead(A0);
+    //Reading Light and Button Sensors contained in Grove Starter Kit for Arduino
+    //Connect Light Sensor on Analogic PIN A0
+    int lum = analogRead(A0);
+    measures[0][0] = "l";
+    measures[0][1] = String(lum);
+
+    //Connect Button Sensor on Analogic PIN A1
+    int touch = analogRead(A1);
+    String pulse = "false";
+    if(touch>100){
+      pulse = "true";
+    } 
+    measures[1][0] = "p";
+    measures[1][1] = String(pulse);
   }
 
     
-  void postMeasure(char alias[],int value)
+  void postMeasures()
   {
     Serial.println("\nStarting connection to server...");
+    String body;
     
     // if you get a connection, report back via serial:
     if (client.connect(server, port)) {
       Serial.println("connected to server");
-      // Make a HTTP request:
-      client.println("POST /iot/d?i=xxxx&k=xxxxx HTTP/1.1");
-      client.println("Host: test.ttcloud.net:8082");
-      String body = String(alias)+"|"+String(value);
-      client.println("Content-Length: "+String(body.length()));
-      client.println();
-      client.println(body);
+      for (int i = 0; i < numsensors; i++){ 
+        body= body + String(measures[i][0])+"|"+String(measures[i][1]);
+        if (i!=numsensors-1){
+            body = body +"#";
+        }
+            
+      }
+      
+    // Make a HTTP request:
+    client.println("POST /iot/d?i="+String(FIWARE_DEVICE)+"&k="+String(FIWARE_APIKEY)+" HTTP/1.1");    
+    client.println("Host: test.ttcloud.net:8082");
+    client.println("Content-Length: "+String(body.length()));
+    client.println("Connection: close");
+    client.println();
+    client.println(body);
+    Serial.println(body);
+    client.stop();
     }
   }
+  
   
   
