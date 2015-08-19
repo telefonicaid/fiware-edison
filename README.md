@@ -18,27 +18,35 @@ and show both values in several Freeboard web widgets
 
 ### Arduino IDE
 In this example we will connect Light and Button data to Fiware IoT Stack using Arduino IDE. If you are new working with Edison and Arduino IDE, we recommend you going [here|  <https://software.intel.com/es-es/get-started-arduino-install].
-* Download Edison2Fiware.ino sketch file from http://github.com/fiware-edison/arduino in your drive and open it in Arduino IDE (File > Open)
+* Download Edison2Fiware.ino sketch file from [here](http://github.com/fiware-edison/arduino) in your drive and open it in Arduino IDE (File > Open)
 * Write your WIFI SSID and password in:
- char ssid[] = "";
- char pass[] = "";
+```
+char ssid[] = "";
+char pass[] = "";
+```
 * Write your FIWARE cloud credentials:
- char FIWARE_APIKEY = XXXXXXXXXX
+```
+char FIWARE_APIKEY = XXXXXXXXXX
+```
 * Plug Light Sensor into A0 analog input and Button Sensor into A1. You can use other analogic input, modifying the following lines in the code:
- int lum = analogRead(A0);
- int touch = analogRead(A1);
+```
+int lum = analogRead(A0);
+int touch = analogRead(A1);
+```
 * Once you have done the configuration steps, upload the sketch to your Edison (connected using the middle USB port). It will connect to the wifi network, and send data to FIWARE Cloud:
+```
  client.println("POST /iot/d?i=FIWARE_DEVICE&k=FIWARE_APIKEY HTTP/1.1");
- client.println("Host: test.ttcloud.net:8082");
+ client.println("Host: "+FIWARE_SERVER+":"+FIWARE_PORT);
  String body = String(alias)+"|"+ value;
  client.println("Content-Length: "+String(body.length()));
  client.println("Connection: close");
  client.println();
  client.println(body);
  client.stop();
+```
 * Now, your data is in the FIWARE IoT Stacke, so you can
-** Read the data from you application using NGSI APIs:
-** Show your data in Freeboard as explained in xxxx (link a la seccion de como conectar CB con Freeboard)
+** Read the data from you application using NGSI APIs
+** Show your data in Freeboard as explained in [Visualizing your FiWARE IoT Stack Data](http://github.com/fiware-edison/README.md)
 
 ### Intel XDK IDE (Node.js)
 
@@ -87,7 +95,24 @@ FIWARE_APIKEY = "xxx"
 root@edison:/home/pythonajln# python edison2fiware.py
 ```
 
-## Visualizing your FiWARE IoT Stack Data
-### Freeboard Example
-[Example](https://freeboard.io/board/0cYCHY)
+## Accesing your FiWARE IoT Stack Data
+Now, you have your sensors data in FIWARE IoT Stack. So what?
+Next step is connecting your applications with FIWARE IoT Stack to access your data and show your magic.
+
+### Using NGSI APIs
+Integrating external apps is done via NGSI APIs. [Here](http://fiware-iot-stack.readthedocs.org/en/latest/quickguide/index.html#step-3-get-data)
+you have a getting started tutorial to start working. You should use the following FIWARE credentials:
+'''
+FiwareService = edison
+FiwareServicePath = /your_user_name
+user = your_user_name
+password = your_user_name
+'''
+
+### Drag&Drop visualizations with Freeboard
+If you just need a dashboard(like [this one](https://freeboard.io/board/0cYCHY) ) to show your sensors data in real time, you can create it using [Freeboard](https://freeboard.io)
 [Tutorial](http://fiware-iot-stack.readthedocs.org/en/latest/quickguide/index.html#step-4-show-in-a-dashboard)
+
+### Showing your data in a map with CartoDB
+You can also use another pre-integrated visualization service as [CartoDB](https://cartodb.com/) that will allow you showing your data in a map,
+and then build fantastic data aggregations (as heat maps). Connector to integrate CartoDB and FIWARE IoT Stack is [here](https://github.com/telefonicaid/fiware-orion2cartodb)
