@@ -4,8 +4,8 @@ var mraa = require('mraa'); //require mraa
 
 
 //################ FIWARE VARIABLES ################
-var FIWARE_APIKEY = 'lzSnQpEsC0lZVOVXaqZK';
-var FIWARE_DEVICE = 'myEdison';
+var FIWARE_APIKEY = 'xxxxxx';
+var FIWARE_DEVICE = 'xxxxx';
 var FIWARE_SERVER = 'test.ttcloud.net';
 var FIWARE_PORT = '8082';
 
