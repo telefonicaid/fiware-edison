@@ -8,23 +8,23 @@
   char pass[] = "xxxxx";    // your network password (use for WPA, or use as key for WEP)
   int keyIndex = 0;            // your network key Index number (needed only for WEP)
   int status = WL_IDLE_STATUS;
-  
-  //################# NETWORK VARIABLES #################
-  // Name of the server we want to connect to
-  char server[] = "test.ttcloud.net";
-  int port = 8082;  
   WiFiClient client;
-  
+    
   //################ FIWARE VARIABLES ################
-  char FIWARE_APIKEY[] = "xxxxxx";
+  char FIWARE_APIKEY[] = "lzSnQpEsC0lZVOVXaqZK";
   char FIWARE_DEVICE[] = "myEdison";
+  char FIWARE_SERVER[] = "test.ttcloud.net";
+  int FIWARE_PORT = 8082; 
+  
   
   //################ SENSOR VARIABLES ################  
   const int numsensors = 2;
   String measures[numsensors][2];
+  // wait 2s between measures
+  int MEASURES_PERIOD = 2000;
   
     
-  
+    
   void setup() 
   {  
     // put your setup code here, to run once:
@@ -44,8 +44,7 @@
     readSensors();
     postMeasures();
     
-    // wait 1s between measures
-    delay(1000);  
+    delay(MEASURES_PERIOD);  
     
   }
  
@@ -82,6 +81,7 @@
   void readSensors()
   {
     //Reading Light and Button Sensors contained in Grove Starter Kit for Arduino
+    
     //Connect Light Sensor on Analogic PIN A0
     int lum = analogRead(A0);
     measures[0][0] = "l";
@@ -101,10 +101,11 @@
   void postMeasures()
   {
     Serial.println("\nStarting connection to server...");
+    
     String body;
     
     // if you get a connection, report back via serial:
-    if (client.connect(server, port)) {
+    if (client.connect(FIWARE_SERVER, FIWARE_PORT)) {
       Serial.println("connected to server");
       for (int i = 0; i < numsensors; i++){ 
         body= body + String(measures[i][0])+"|"+String(measures[i][1]);
@@ -123,6 +124,7 @@
     client.println(body);
     Serial.println(body);
     client.stop();
+    
     }
   }
   
