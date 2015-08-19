@@ -102,12 +102,12 @@ Next step is connecting your applications with FIWARE IoT Stack to access your d
 ### Using NGSI APIs
 Integrating external apps is done via NGSI APIs. [Here](http://fiware-iot-stack.readthedocs.org/en/latest/quickguide/index.html#step-3-get-data)
 you have a getting started tutorial to start working. You should use the following FIWARE credentials:
-'''
+```
 FiwareService = edison
 FiwareServicePath = /your_user_name
 user = your_user_name
 password = your_user_name
-'''
+```
 
 ### Drag&Drop visualizations with Freeboard
 If you just need a dashboard(like [this one](https://freeboard.io/board/0cYCHY) ) to show your sensors data in real time, you can create it using [Freeboard](https://freeboard.io)
