@@ -117,7 +117,7 @@
       
     // Make a HTTP request:
     client.println("POST /iot/d?i="+String(FIWARE_DEVICE)+"&k="+String(FIWARE_APIKEY)+" HTTP/1.1");    
-    client.println("Host: test.ttcloud.net:8082");
+    client.println("Host:"+FIWARE_SERVER+":"+FIWARE_PORT);
     client.println("Content-Length: "+String(body.length()));
     client.println("Connection: close");
     client.println();
