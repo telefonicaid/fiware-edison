@@ -12,12 +12,17 @@ var FIWARE_PORT = '8082';
 
 var MEASURES_PERIOD = 2000; // time between measures
 
-var measures={}; // Dictionary to persist Sensor values
+//################ SENSOR VARIABLES ################
+var analogPin0 = new mraa.Aio(0); //setup access to analog input #0 (A0) connected to Luminosity Sensor
+var analogPin1 = new mraa.Aio(1); //setup access to analog input #1 (A1) connected to Button Sensor
+
 
 loop();
 
+
 function loop(){
-    
+
+var measures={}; // Dictionary to persist Sensor values       
 readMeasures();
 postMeasures();
 setTimeout(loop, MEASURES_PERIOD);
@@ -25,12 +30,10 @@ setTimeout(loop, MEASURES_PERIOD);
 }
 
 function readMeasures(){
-    
-var analogPin0 = new mraa.Aio(0); //setup access to analog input #0 (A0) connected to Luminosity Sensor
+
 var lum = analogPin0.read();
 measures["l"] = lum; // save lumininosity value in the dictionary
 
-var analogPin1 = new mraa.Aio(1); //setup access to analog input #1 (A1) connected to Button Sensor
 var touch = analogPin1.read();
 var pulse = touch>100;
 measures["p"] = pulse; // save button pulse value in the dictionary
@@ -51,7 +54,9 @@ if(counter>1){
 };
     
 console.log('Sending measures to FIWARE IoT Stack '+body);
-   
+
+
+
 var options = { 
   method: 'POST',
   url: 'http://'+FIWARE_SERVER+':'+FIWARE_PORT+'/iot/d',
