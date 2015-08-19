@@ -9,7 +9,7 @@ import requests
 ################ FIWARE VARIABLES ################
 FIWARE_SERVER = "test.ttcloud.net"
 FIWARE_PORT = "8082"
-FIWARE_APIKEY = "lzSnQpEsC0lZVOVXaqZK"
+FIWARE_APIKEY = "xxxx"
 FIWARE_DEVICE = "myEdison"
 
 #Time between measures
@@ -37,9 +37,9 @@ def readMeasures():
 def postMeasures():
 
     first = True
-    payload = ""
+    p
     for key,value in measures.items():
-        #Measures payload format is alias1|value1#alias2|value2#....
+        #Measures payload format is alias1|value1#alias2|value2#...#aliasN|valueN
         #Add measures separator "#" to the request payload only when it is not the first measure
         if(first):
             first = False
