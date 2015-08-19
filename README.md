@@ -35,13 +35,13 @@ int touch = analogRead(A1);
 ```
 * Once you have done the configuration steps, upload the sketch to your Edison (connected using the middle USB port). It will connect to the wifi network, and send data to FIWARE Cloud:
 ```
- client.println("POST /iot/d?i=FIWARE_DEVICE&k=FIWARE_APIKEY HTTP/1.1");
- client.println("Host: "+FIWARE_SERVER+":"+FIWARE_PORT);
- String body = String(alias)+"|"+ value;
+ client.println("POST /iot/d?i="+String(FIWARE_DEVICE)+"&k="+String(FIWARE_APIKEY)+" HTTP/1.1");    
+ client.println("Host: test.ttcloud.net:8082");
  client.println("Content-Length: "+String(body.length()));
  client.println("Connection: close");
  client.println();
  client.println(body);
+ Serial.println(body);
  client.stop();
 ```
 * Now, your data is in the FIWARE IoT Stacke, so you can
