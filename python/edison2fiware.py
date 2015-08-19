@@ -9,8 +9,8 @@ import requests
 ################ FIWARE VARIABLES ################
 FIWARE_SERVER = "test.ttcloud.net"
 FIWARE_PORT = "8082"
-FIWARE_APIKEY = "lzSnQpEsC0lZVOVXaqZK"
-FIWARE_DEVICE = "myEdison"
+FIWARE_APIKEY = "xxxxxxxx"
+FIWARE_DEVICE = "xxxxxx"
 
 #Time between measures
 MEASURES_PERIOD = 2
