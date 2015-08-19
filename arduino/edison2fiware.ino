@@ -11,8 +11,8 @@
   WiFiClient client;
     
   //################ FIWARE VARIABLES ################
-  char FIWARE_APIKEY[] = "lzSnQpEsC0lZVOVXaqZK";
-  char FIWARE_DEVICE[] = "myEdison";
+  char FIWARE_APIKEY[] = "xxxxx";
+  char FIWARE_DEVICE[] = "xxxxx";
   char FIWARE_SERVER[] = "test.ttcloud.net";
   int FIWARE_PORT = 8082; 
   
