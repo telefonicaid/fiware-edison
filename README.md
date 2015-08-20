@@ -33,7 +33,7 @@ char FIWARE_APIKEY = XXXXXXXXXX
 
 * Now, your data is in the FIWARE IoT Stacke, so you can
 ** Read the data from you application using NGSI APIs
-** Show your data in Freeboard as explained in [Visualizing your FiWARE IoT Stack Data](http://github.com/fiware-edison/README.md)
+** Show your data in Freeboard as explained in [Visualizing your FiWARE IoT Stack Data](https://github.com/telefonicaid/fiware-edison/blob/develop/README.md#accesing-your-fiware-iot-stack-data)
 
 ### Intel XDK IDE (Node.js)
 As you know Intel Edison has a Linux inside (Yocto), that we are going to use for running node.js scripts. 
@@ -58,9 +58,9 @@ FIWARE_APIKEY = "xxx"
 * Upload the file to your Edison clicking on hammer button.
 * Once it is uploaded click on the play button, so the party will start! 
 
-* * Now, your data is in the FIWARE IoT Stacke, so you can
+*  Now, your data is in the FIWARE IoT Stacke, so you can
 ** Read the data from you application using NGSI APIs
-** Show your data in Freeboard as explained in [Visualizing your FiWARE IoT Stack Data](http://github.com/fiware-edison/README.md)
+** Show your data in Freeboard as explained in [Visualizing your FiWARE IoT Stack Data](https://github.com/telefonicaid/fiware-edison/blob/develop/README.md#accesing-your-fiware-iot-stack-data)
 
 ### Eclipse (C++)
 
@@ -109,7 +109,7 @@ root@edison:/home/pythonajln# python edison2fiware.py
 ```
 * Now, your data is in the FIWARE IoT Stacke, so you can
 ** Read the data from you application using NGSI APIs
-** Show your data in Freeboard as explained in [Visualizing your FiWARE IoT Stack Data](http://github.com/fiware-edison/README.md)
+** Show your data in Freeboard as explained in [Visualizing your FiWARE IoT Stack Data](https://github.com/telefonicaid/fiware-edison/blob/develop/README.md#accesing-your-fiware-iot-stack-data)
 
 ## Accesing your FiWARE IoT Stack Data
 Now, you have your sensors data in FIWARE IoT Stack. So what?
