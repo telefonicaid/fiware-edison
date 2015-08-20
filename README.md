@@ -14,7 +14,7 @@ If you are not familiar with FIWARE IoT Stack, we recommend you going to its Rea
 ## Edison 2 Fiware Examples
 In the following examples, we will be using an Intel Edison with the Arduino expansion board,
 plus the Grove Starter Kit for Arduino to send both Luminosity and Button Sensors to FIWARE IoT Stack,
-and show both values in several Freeboard web widgets
+and show both values in several Freeboard web widgets. Please make sure that you've already plugged light sensor into A0 analog input and button Sensor into A1.
 
 ### Arduino IDE
 In this example we will connect Light and Button data to Fiware IoT Stack using Arduino IDE. If you are new working with Edison and Arduino IDE, we recommend you going [here|  <https://software.intel.com/es-es/get-started-arduino-install].
@@ -28,22 +28,9 @@ char pass[] = "";
 ```
 char FIWARE_APIKEY = XXXXXXXXXX
 ```
-* Plug Light Sensor into A0 analog input and Button Sensor into A1. You can use other analogic input, modifying the following lines in the code:
-```
-int lum = analogRead(A0);
-int touch = analogRead(A1);
-```
-* Once you have done the configuration steps, upload the sketch to your Edison (connected using the middle USB port). It will connect to the wifi network, and send data to FIWARE Cloud:
-```
- client.println("POST /iot/d?i="+String(FIWARE_DEVICE)+"&k="+String(FIWARE_APIKEY)+" HTTP/1.1");    
- client.println("Host:"+String(FIWARE_SERVER)+":"+String(FIWARE_PORT));
- client.println("Content-Length: "+String(body.length()));
- client.println("Connection: close");
- client.println();
- client.println(body);
- Serial.println(body);
- client.stop();
-```
+* Plug Light Sensor into A0 analog input and Button Sensor into A1. 
+* Once you have done the configuration steps, upload the sketch to your Edison (connected using the middle USB port). 
+
 * Now, your data is in the FIWARE IoT Stacke, so you can
 ** Read the data from you application using NGSI APIs
 ** Show your data in Freeboard as explained in [Visualizing your FiWARE IoT Stack Data](http://github.com/fiware-edison/README.md)
@@ -61,12 +48,13 @@ Then, we can install required Node.js libraries, as requests (used as HTTP Clien
 ```
 npm install request
 ```
-* Download edison2fiware.py file from https://github.com/telefonicaid/fiware-edison/tree/develop/nodejs in your drive and create a new project and  it with Intel XDK, and replace main.js for the file that we provide you.  
+* Download main.js file from https://github.com/telefonicaid/fiware-edison/tree/master/nodejs in your drive and create a new project and  it with Intel XDK, and replace main.js for the file that we provide you.  
 * Configure your FIWARE credentials
 ```
 FIWARE_APIKEY = "xxx"
 ```
-* Select your device from the IoT device's list that appears on the button-left part of the screen. If you can't find it, just select "Add Manual Conenction" and fill the blanks with your ip address, user name and password. 
+* Select your device from the IoT device's list that appears on the button-left part of the screen. If you can't find it, just select "Add Manual Connection" and fill the blanks with your ip address, user name and password.
+* Please make sure that you've already plugged light sensor into A0 analog input and button Sensor into A1.
 * Upload the file to your Edison clicking on hammer button.
 * Once it is uploaded click on the play button, so the party will start! 
 
@@ -110,6 +98,7 @@ pip install requests
 FIWARE_APIKEY = "xxx"
 ```
 * Upload the file to your Edison (using FileZilla, for example). Using your Edison IP, user/pass. Port 22.
+* Please make sure that you've already plugged light sensor into A0 analog input and button Sensor into A1.
 * Execute! (using the same SSH connection used in Step 2)
 ```
 root@edison:/home/pythonajln# python edison2fiware.py
