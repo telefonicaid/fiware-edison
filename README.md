@@ -17,7 +17,7 @@ plus the Grove Starter Kit for Arduino to send both Luminosity and Button Sensor
 and show both values in several Freeboard web widgets. Please make sure that you've already plugged light sensor into A0 analog input and button Sensor into A1.
 
 ### Arduino IDE
-In this example we will connect Light and Button data to Fiware IoT Stack using Arduino IDE. If you are new working with Edison and Arduino IDE, we recommend you going [here|  <https://software.intel.com/es-es/get-started-arduino-install].
+In this example we will connect Light and Button data to Fiware IoT Stack using Arduino IDE. If you are new working with Edison and Arduino IDE, we recommend you going [here](https://software.intel.com/es-es/get-started-arduino-install).
 * Download Edison2Fiware.ino sketch file from [here](http://github.com/fiware-edison/arduino) in your drive and open it in Arduino IDE (File > Open)
 * Write your WIFI SSID and password in:
 ```
