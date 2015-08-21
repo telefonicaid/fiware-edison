@@ -11,5 +11,5 @@ char FIWARE_APIKEY = XXXXXXXXXX
 ```
 * Plug Light Sensor into A0 analog input and Button Sensor into A1. 
 * Once you have done the configuration steps, upload the sketch to your Edison (connected using the middle USB port). 
-* That's it! Your Edison is reading the sensors and its data is in the FIWARE IoT Stack!
-* Next steps:Read the data from you application using NGSI APIs or show it in a cool Freeboard as explained in [Visualizing your FIWARE IoT Stack Data](https://github.com/telefonicaid/fiware-edison/README.md#accesing-your-fiware-iot-stack-data)
+* That's it! Your Edison is reading sensors and its data is updated in the FIWARE IoT Stack!
+* Next steps:Read the data from you application using NGSI APIs or show it in a cool Freeboard as explained in [Visualizing your FIWARE IoT Stack Data](https://github.com/telefonicaid/fiware-edison/blob/develop/README.md#accesing-your-fiware-iot-stack-data)
