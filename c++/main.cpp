@@ -1,3 +1,4 @@
+//################# LIBRARIES ################
 #include <stdio.h>
 #include <curl/curl.h>
 #include "mraa.hpp"
@@ -9,14 +10,14 @@
 using namespace std;
 
 
-
-
-int read() {
+int read() 
+{
     static int i = 0;
     return ++i;
 }
 
-string int_to_string(int i) {
+string int_to_string(int i) 
+{
     stringstream ss;
     ss << i;
     return ss.str();
@@ -28,95 +29,86 @@ string FIWARE_APIKEY = "lzSnQpEsC0lZVOVXaqZK";
 string FIWARE_DEVICE = "myEdison";
 string FIWARE_SERVER = "test.ttcloud.net";
 string FIWARE_PORT = "8082";
+string url="http://"+FIWARE_SERVER+":"+FIWARE_PORT+"/iot/d?i="+FIWARE_DEVICE+"&k="+FIWARE_APIKEY;
 
-int main()
+string body="";
+
+void readsensors()
 {
-
-
-
-
 	// check that we are running on Galileo or Edison
 	mraa_platform_t platform = mraa_get_platform_type();
-	if ((platform != MRAA_INTEL_GALILEO_GEN1) &&
-			(platform != MRAA_INTEL_GALILEO_GEN2) &&
-			(platform != MRAA_INTEL_EDISON_FAB_C)) {
-		std::cerr << "Unsupported platform, exiting" << std::endl;
-		return MRAA_ERROR_INVALID_PLATFORM;
-	}
 
-	// create an analog input object from MRAA using pin A0
+	// create an analog input object for each sensor
 	mraa::Aio* a0_pin = new mraa::Aio(0);
 	mraa::Aio* a1_pin = new mraa::Aio(1);
+	// Dictionary to persist Sensor values
+	typedef map <string, string> Table;
+	Table measures;
+	//Reading Light sensor
+	int lum = a0_pin->read();
 
-	if (a0_pin == NULL || a1_pin == NULL) {
-		std::cerr << "Can't create mraa::Aio object, exiting" << std::endl;
-		return MRAA_ERROR_UNSPECIFIED;
-	}
+	//Reading Button sensor
+	int touch = a1_pin->read();
+	string pulse = "false";
+		if(touch>100){
+		  pulse = "true";
+		}
+	// save lumininosity value in the dictionary
+	measures["p"]=pulse;
+	measures["l"]=int_to_string(lum);
 
-	// loop forever printing the input value every second
-	for (;;) {
-		typedef map <string, string> Table;
-		Table measures;
-		int lum = a0_pin->read();
-		measures["l"]=int_to_string(lum);
-		int touch = a1_pin->read();
-		string pulse = "false";
-		    if(touch>100){
-		      pulse = "true";
-		    }
-		measures["p"]=pulse;
-
-		string body = "";
-		for (Table::const_iterator it = measures.begin(); it != measures.end(); ++it) {
-
+	for (Table::const_iterator it = measures.begin(); it != measures.end(); ++it) {
+		//add measures separator "#" to the body only when it is not the last measure
 		if (body != "") {
 			 body += "#";
 		}
+		//FIWARE IoT Stack body message
 		body += it->first + "|" + it->second;
-		}
+	}
 
-		CURL *curl;
-		CURLcode res;
+}
 
+void postmeasures(){
 
-		string url="";
-		url="http://"+FIWARE_SERVER+":"+FIWARE_PORT+"/iot/d?i="+FIWARE_DEVICE+"&k="+FIWARE_APIKEY;
+	CURL *curl;
 
-		char bodyChar[body.length()];
-		strcpy(bodyChar, body.c_str());
+	string url="http://"+FIWARE_SERVER+":"+FIWARE_PORT+"/iot/d?i="+FIWARE_DEVICE+"&k="+FIWARE_APIKEY;
 
-		char urlChar[url.length()];
-		strcpy(urlChar, url.c_str());
+	char bodyChar[body.length()];
+	strcpy(bodyChar, body.c_str());
 
-
-
+	char urlChar[url.length()];
+	strcpy(urlChar, url.c_str());
 
 
-		curl = curl_easy_init();
-		if(curl) {
+	curl = curl_easy_init();
+	
+	//Send body to IoT Stack platform
+	if(curl) {
 		cout << "Sending -> " << body << endl;
-
+	
 		curl_easy_setopt(curl, CURLOPT_URL, urlChar);
 		struct curl_slist *headers=NULL;
 		headers = curl_slist_append(headers, "Content-Type:");
 		curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
 		curl_easy_setopt(curl, CURLOPT_POSTFIELDS, bodyChar);
-
-		res = curl_easy_perform(curl);
-		if(res != CURLE_OK)
-		      fprintf(stderr, "curl_easy_perform() failed: %s\n",
-		              curl_easy_strerror(res));
-
-		    /* always cleanup */
-		    curl_easy_cleanup(curl);
-		  }
-		  curl_global_cleanup();
-
-
-		sleep(1);
-
-
+	
+		curl_easy_perform(curl);
 	}
+	curl_global_cleanup();
+	// Clean body before the following iteration
+	body="";
 
-	return MRAA_SUCCESS;
+}
+
+int main()
+{
+	// loop forever printing the input value every second
+	for (;;) {
+
+		readsensors();
+		postmeasures();
+		sleep(1);
+	}
+	return 0;
 }
