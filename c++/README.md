@@ -5,8 +5,8 @@ Intel Edison has a Linux (Yocto) inside. We are using this for running c++ progr
 ssh root@your_edison_ip
 ```
 * Now we must ensure that the curl library is linked in our proyect (it is necessary for the HTTP POST). If you get compiler errors, do the following to add the curl library:
-** Right click on the project and select properties. Then navigate to C/C++ Build -->Settings --> Cross G++ Linker --> Libraries --> Click the green plus button,and add the “curl” library.
-** This is a generic example for the possible path of the curl library: ###################################
+⋅⋅* Right click on the project and select properties. Then navigate to C/C++ Build -->Settings --> Cross G++ Linker --> Libraries --> Click the green plus button,and add the “curl” library.
+⋅⋅* Add the path of the curl library.
 * Configure your FIWARE credentials:
 ```
 string FIWARE_APIKEY = "xxxxx";
