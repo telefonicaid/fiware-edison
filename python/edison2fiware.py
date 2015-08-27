@@ -40,7 +40,7 @@ def postMeasures():
     for key,value in measures.items():
         #Measures payload format is alias1|value1#alias2|value2#...#aliasN|valueN
         #Add measures separator "#" to the request payload only when it is not the first measure
-        if(payload is not ""):
+        if(payload != ""):
             payload = payload + "#"
         payload = payload + key + "|" + value
 
