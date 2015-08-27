@@ -32,7 +32,7 @@ If you prefer programming in Node, [this is your tutorial](https://github.com/te
 For those who priorise optimal coding, go [here](https://github.com/telefonicaid/fiware-edison/tree/develop/cplusplus)
 
 ### Python
-Even Python is not given as an option to code your Edison in the official Intel Getting Started Guide, we know you love Python (we too!), so we have also created this [Python tutorial](https://github.com/telefonicaid/fiware-edison/new/develop/python) 
+Even Python is not given as an option to code your Edison in the official Intel Getting Started Guide, we know you love Python (we too!), so we have also created this [Python tutorial](https://github.com/telefonicaid/fiware-edison/new/develop/python)
 
 ## Accesing your FIWARE IoT Stack Data
 You have your Edison sensors data up there in the cloud in FIWARE IoT Stack. So what?
