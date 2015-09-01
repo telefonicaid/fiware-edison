@@ -11,7 +11,7 @@ If you are new with Intel Edison, we recommend you going first to the Intel Edis
 
 This FIWARE IoT Stack is also available for independent developers and startups, and will be used in this tutorial to persist your Edison data in the cloud. You can go to its [ReadTheDocs](http://fiware-iot-stack.readthedocs.org/en/latest/index.html) to get familiar with it. 
 
-NOTE: If you are a hacker participating in the [Movilforum Intel Edison Hackaton](http://movilforum.com/unete-con-movilforum-al-reto-intel-edison-2015) Your can get your FIWARE IoT Stack credentials [here](http://xxx.com)
+NOTE: If you are a hacker participating in the [Movilforum Intel Edison Hackaton](http://movilforum.com/unete-con-movilforum-al-reto-intel-edison-2015) You can get your FIWARE IoT Stack credentials [here](http://edisonhack.ttcloud.net/)
 
 If you are not, [contact us](mailto:iot_support@tid.es) and we will give you the steps to get access.
 
