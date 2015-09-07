@@ -55,10 +55,14 @@ If you have connected more sensors to your Edison, they will appear here with th
 
 If you want to, you can go to "Devices" section to provision a device for your Edison. For example, you could change your Entity ID (setting "home" instead of "device:myEdison" or "luminosity" instead of "l"). Check [this guide](http://fiware-iot-stack.readthedocs.org/en/latest/quickguide/index.html#step-2-see-data) for more details
 
-### Step #2 : Drag&Drop visualizations with Freeboard
-If you just need a dashboard(like [this one](https://freeboard.io/board/0cYCHY) ) to show your sensors data in real time, you can create it using [Freeboard](https://freeboard.io)
-[Tutorial](http://fiware-iot-stack.readthedocs.org/en/latest/quickguide/index.html#step-4-show-in-a-dashboard)
+### Step #3 : Drag&Drop visualizations with Freeboard
+If you just need a dashboard (like [this one](https://freeboard.io/board/0cYCHY) ) to show your sensors data in real time, you can create it using [Freeboard](https://freeboard.io) without writing a line of code. 
 
-### Step #3 :Using NGSI APIs
-If you want to build your own app, with your own code and UX, you are looking for an API, right?. Integrating external apps is done via [NGSI APIs](https://forge.fiware.org/plugins/mediawiki/wiki/fiware/index.php?title=Publish/Subscribe_Broker_-_Orion_Context_Broker_-_User_and_Programmers_Guide). [Here](http://fiware-iot-stack.readthedocs.org/en/latest/quickguide/index.html#step-3-get-data)
+Please, read our 
+[FIWARE Orion Datasource Freedboard Tutorial](http://fiware-iot-stack.readthedocs.org/en/latest/quickguide/index.html#step-4-show-in-a-dashboard) if you have any trouble.
+
+### Step #4 : Use FIWARE NGSI APIs
+If you want to build your own app, with your own code and UX, you are looking for an API, right?. 
+
+Integrating external apps is done via [NGSI APIs](https://forge.fiware.org/plugins/mediawiki/wiki/fiware/index.php?title=Publish/Subscribe_Broker_-_Orion_Context_Broker_-_User_and_Programmers_Guide). [Here](http://fiware-iot-stack.readthedocs.org/en/latest/quickguide/index.html#step-3-get-data)
 you have a getting started tutorial to start working with these APIs.
