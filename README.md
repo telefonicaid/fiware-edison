@@ -39,7 +39,14 @@ You have your Edison sensors data up there in the cloud in FIWARE IoT Stack. So 
 
 Next step is connecting your applications with FIWARE IoT Stack to access your data and show your magic to the rest of the world.
 
-### First step: FIWARE IoT Stack Management Portal
+### Step #1: Sign up to get your credentials
+You can get your FIWARE IoT Stack credentials at [http://edisonhack.ttcloud.net/](http://edisonhack.ttcloud.net/).
+
+You will receive an email with your API and portal credentials to send data from your Edison and use FIWARE IoT Stack APIs on your App.
+
+Please, in case you have any trouble signing up let us know at [iot_support@tid.es](mailto:iot_support@tid.es)
+
+### Step #2: FIWARE IoT Stack Management Portal
 To check your data is correctly sent and stored, first thing is accessing the [Management Portal](http://test.ttcloud.net:8008). You can log-in using your given FIWARE user/password. In the "Entities" section (An Entity is a data object representation in FIWARE, so your Edison is represented as an Entity) you will find an Entity called "device:myEdison" with a list of attributes:
 * "l": Your luminosity sensor
 * "p": Your button sensor
@@ -48,10 +55,10 @@ If you have connected more sensors to your Edison, they will appear here with th
 
 If you want to, you can go to "Devices" section to provision a device for your Edison. For example, you could change your Entity ID (setting "home" instead of "device:myEdison" or "luminosity" instead of "l"). Check [this guide](http://fiware-iot-stack.readthedocs.org/en/latest/quickguide/index.html#step-2-see-data) for more details
 
-### Drag&Drop visualizations with Freeboard
+### Step #2 : Drag&Drop visualizations with Freeboard
 If you just need a dashboard(like [this one](https://freeboard.io/board/0cYCHY) ) to show your sensors data in real time, you can create it using [Freeboard](https://freeboard.io)
 [Tutorial](http://fiware-iot-stack.readthedocs.org/en/latest/quickguide/index.html#step-4-show-in-a-dashboard)
 
-### Using NGSI APIs
+### Step #3 :Using NGSI APIs
 If you want to build your own app, with your own code and UX, you are looking for an API, right?. Integrating external apps is done via [NGSI APIs](https://forge.fiware.org/plugins/mediawiki/wiki/fiware/index.php?title=Publish/Subscribe_Broker_-_Orion_Context_Broker_-_User_and_Programmers_Guide). [Here](http://fiware-iot-stack.readthedocs.org/en/latest/quickguide/index.html#step-3-get-data)
 you have a getting started tutorial to start working with these APIs.
