@@ -15,7 +15,7 @@ NOTE: If you are a hacker participating in the [Movilforum Intel Edison Hackaton
 
 If you are not, [contact us](mailto:iot_support@tid.es) and we will give you the steps to get access.
 
-## Tutorials
+## Edison libraries tutorials
 In the following examples, we will be using an Intel Edison with the Arduino expansion board,
 plus the Grove Starter Kit for Arduino to send both Luminosity and Button Sensors to FIWARE IoT Stack,
 and show both values in several Freeboard web widgets. Please make sure that you've already plugged light sensor into A0 analog input and button Sensor into A1.
@@ -34,7 +34,7 @@ For those who priorise optimal coding, go [here](https://github.com/telefonicaid
 ### Python
 Even Python is not given as an option to code your Edison in the official Intel Getting Started Guide, we know you love Python (we too!), so we have also created this [Python tutorial](https://github.com/telefonicaid/fiware-edison/new/develop/python)
 
-## Accesing your FIWARE IoT Stack Data
+## Using FIWARE IoT Stack
 You have your Edison sensors data up there in the cloud in FIWARE IoT Stack. So what?
 
 Next step is connecting your applications with FIWARE IoT Stack to access your data and show your magic to the rest of the world.
