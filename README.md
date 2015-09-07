@@ -1,12 +1,15 @@
 # Edison 2 FIWARE IoT Stack Integration
+
+
+## Introduction
 This repository holds examples about how to persist your Intel Edison sensors data into FIWARE IoT Stack cloud service.
 
 Then, it will show you how to access these data using FIWARE NGSI standard APIs and its multiple connectors with external tools as Freeboard or CartoDB.
 
-## Introduction to Intel Edison
+### First steps on Intel Edison
 If you are new with Intel Edison, we recommend you going first to the Intel Edison [getting started guide](https://software.intel.com/es-es/iot/library/edison-getting-started). Also, you can find a lot of examples and tutorials in the [Movilforum Intel Edison Hackaton site](http://movilforum.com/unete-con-movilforum-al-reto-intel-edison-2015)
 
-## Introduction to FIWARE IoT Stack
+### What is FIWARE IoT Stack?
 [FIWARE](https://www.fiware.org/) is an open initiative aiming to create a sustainable ecosystem to grasp the opportunities that will emerge with the new wave of digitalization caused by the integration of recent Internet technologies. Based on this FIWARE technologies, and focused on IoT area, Telefonica created and [IoT Platform](http://iot.tid.es) to help Industrial Partners and Smart Cities building its IoT services. 
 
 This FIWARE IoT Stack is also available for independent developers and startups, and will be used in this tutorial to persist your Edison data in the cloud. You can go to its [ReadTheDocs](http://fiware-iot-stack.readthedocs.org/en/latest/index.html) to get familiar with it. 
