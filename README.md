@@ -32,7 +32,7 @@ If you are an Arduino lover, [this example](https://github.com/telefonicaid/fiwa
 If you prefer programming in Node, [this is your tutorial](https://github.com/telefonicaid/fiware-edison/tree/develop/nodejs)
 
 ### Eclipse (C++)
-For those who priorise optimal coding, go [here](https://github.com/telefonicaid/fiware-edison/tree/develop/cplusplus)
+For those who priorise optimal coding, go [here](https://github.com/telefonicaid/fiware-edison/tree/develop/cpp)
 
 ### Python
 Even Python is not given as an option to code your Edison in the official Intel Getting Started Guide, we know you love Python (we too!), so we have also created this [Python tutorial](https://github.com/telefonicaid/fiware-edison/new/develop/python)
