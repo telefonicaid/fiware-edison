@@ -9,6 +9,16 @@
 
 using namespace std;
 
+//################ FIWARE VARIABLES ################
+
+const string FIWARE_APIKEY = "93d5810871197ae37c3d7f1f69e06a92";
+const string FIWARE_DEVICE = "myEdison";
+const string FIWARE_SERVER = "hackathon.ttcloud.net";
+const string FIWARE_PORT = "8082";
+const string url="http://"+FIWARE_SERVER+":"+FIWARE_PORT+"/iot/d?i="+FIWARE_DEVICE+"&k="+FIWARE_APIKEY;
+string body="";
+
+
 
 string int_to_string(int i)
 {
@@ -16,16 +26,6 @@ string int_to_string(int i)
     ss << i;
     return ss.str();
 }
-
-//################ FIWARE VARIABLES ################
-
-string FIWARE_APIKEY = "xxxxxxx";
-string FIWARE_DEVICE = "myEdison";
-string FIWARE_SERVER = "hackathon.ttcloud.net";
-string FIWARE_PORT = "8082";
-string url="http://"+FIWARE_SERVER+":"+FIWARE_PORT+"/iot/d?i="+FIWARE_DEVICE+"&k="+FIWARE_APIKEY;
-
-string body="";
 
 void readsensors(mraa::Aio* a0_pin, mraa::Aio* a1_pin)
 {
@@ -73,7 +73,7 @@ void postmeasures(){
 
 		//Send body to IoT Stack platform
 		if(curl) {
-			cout << "Sending: " << body << endl;
+			cout << "Sendingx: " << body << endl;
 
 			curl_easy_setopt(curl, CURLOPT_URL, urlChar);
 			struct curl_slist *headers=NULL;
@@ -93,8 +93,6 @@ void postmeasures(){
 
 int main()
 {
-	// check that we are running on Galileo or Edison
-		mraa_platform_t platform = mraa_get_platform_type();
 	// create an analog input object for each sensor
 		mraa::Aio* a0_pin = new mraa::Aio(0);
 		mraa::Aio* a1_pin = new mraa::Aio(1);
