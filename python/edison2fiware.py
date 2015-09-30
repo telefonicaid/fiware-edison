@@ -76,10 +76,8 @@ def postMeasures():
             
     
 def sendAck():
-
    
- #Not execute old commands again
-    
+    #Not execute old commands again
     url = "http://" + FIWARE_SERVER+ ":" +FIWARE_PORT+ "/iot/d"
     querystring = {"i":FIWARE_DEVICE,"k":FIWARE_APIKEY}
 
