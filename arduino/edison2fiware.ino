@@ -23,8 +23,7 @@
   // Wait 2s between measures
   int MEASURES_PERIOD = 2000;
   
-    
-    
+  
   void setup() 
   {  
     // Put your setup code here, to run once:
