@@ -11,12 +11,13 @@ var FIWARE_SERVER = 'hackathon.ttcloud.net';
 var FIWARE_PORT = '8082';
 
 var MEASURES_PERIOD = 2000; // time between measures
-var measures={}; // Dictionary to persist Sensor values    
+var measures={}; // Dictionary to persist Sensor values   
+
 //################ SENSOR VARIABLES ################
 var analogPin0 = new mraa.Aio(0); //setup access to analog input #0 (A0) connected to Luminosity Sensor
 var analogPin1 = new mraa.Aio(1); //setup access to analog input #1 (A1) connected to Button Sensor
 
-//################# Commands Configuration ##########
+//################# COMMANDS CONFIGURATION ##########
 var led = new mraa.Gpio(6);
 led.dir(mraa.DIR_OUT); 
 
@@ -66,7 +67,7 @@ function postMeasures(){
     };
 
     request(options, function (error, response, body) {
-
+        // Parse chain of commands
         console.log('Response Status Code: '+response.statusCode);
         var received_commands = body.split("#");
         received_commands.reverse();
@@ -89,7 +90,7 @@ function postMeasures(){
     }); 
     
 function sendAck(){
-    
+    // Not execute old commands again
     var options_ack = { 
     method: 'POST',
     url: 'http://'+FIWARE_SERVER+':'+FIWARE_PORT+'/iot/d',
@@ -100,6 +101,5 @@ function sendAck(){
     request(options_ack, function (error, response, body){
         console.log('Response Status Code: '+response.statusCode);
     })    
-}
-    
+}    
 };
