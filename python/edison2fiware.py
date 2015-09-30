@@ -44,6 +44,7 @@ def postMeasures():
     first = True
     payload = ""
     received_commands=[]
+    #Parse chain of commands   
     for key,value in measures.items():
         #Measures payload format is alias1|value1#alias2|value2#....
         #Add measures separator "#" to the request payload only when it is not the first measure
@@ -75,6 +76,9 @@ def postMeasures():
             
     
 def sendAck():
+
+   
+ #Not execute old commands again
     
     url = "http://" + FIWARE_SERVER+ ":" +FIWARE_PORT+ "/iot/d"
     querystring = {"i":FIWARE_DEVICE,"k":FIWARE_APIKEY}
