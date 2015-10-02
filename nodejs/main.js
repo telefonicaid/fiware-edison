@@ -5,7 +5,7 @@ var sleep = require('sleep');
 
 
 //################ FIWARE VARIABLES ################
-var FIWARE_APIKEY = '93d5810871197ae37c3d7f1f69e06a92';
+var FIWARE_APIKEY = 'xxxxxxx';
 var FIWARE_DEVICE = 'myEdison';
 var FIWARE_SERVER = 'hackathon.ttcloud.net';
 var FIWARE_PORT = '8082';
