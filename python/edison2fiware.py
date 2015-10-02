@@ -10,7 +10,7 @@ import json
 ################ FIWARE VARIABLES ################
 FIWARE_SERVER = "hackathon.ttcloud.net"
 FIWARE_PORT = "8082"
-FIWARE_APIKEY = "93d5810871197ae37c3d7f1f69e06a92"
+FIWARE_APIKEY = "xxxxxxx"
 FIWARE_DEVICE = "myEdison"
 
 #Time between measures
