@@ -11,7 +11,7 @@ using namespace std;
 
 //################ FIWARE VARIABLES ################
 
-const string FIWARE_APIKEY = "93d5810871197ae37c3d7f1f69e06a92";
+const string FIWARE_APIKEY = "xxxxxx";
 const string FIWARE_DEVICE = "myEdison";
 const string FIWARE_SERVER = "hackathon.ttcloud.net";
 const string FIWARE_PORT = "8082";
