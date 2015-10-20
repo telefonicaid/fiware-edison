@@ -85,15 +85,15 @@
             if (x==true){
                 $.ajax({
                 type: 'PUT',
-                url: 'https://thingproxy.freeboard.io/fetch/http://hackathon.ttcloud.net:1026/v1/contextEntities/type/thing/id/thing:myEdison/attributes/ledr',
+                url: 'https://thingproxy.freeboard.io/fetch/http://hackathon.ttcloud.net:1026/v1/contextEntities/type/thing/id/thing:xxxxx/attributes/ledr',
                 crossDomain: true,
                 data: '{"value":"off","type":"command"}',
                 dataType: 'json',
                 headers: {'content-type': 'application/json',
                 'accept': 'application/json',
                 'fiware-service': 'edison',
-                'fiware-servicepath': '/edisondemo',
-                'x-auth-token':'915ab22eec4e4a649907f8740bf42940',
+                'fiware-servicepath': 'xxxxx',
+                'x-auth-token':'xxxxxxxxx',
                 }                    
                 }
                 );
@@ -102,15 +102,15 @@
             if (x==false){
                 $.ajax({
                 type: 'PUT',
-                url: 'https://thingproxy.freeboard.io/fetch/http://hackathon.ttcloud.net:1026/v1/contextEntities/type/thing/id/thing:myEdison/attributes/ledr',
+                url: 'https://thingproxy.freeboard.io/fetch/http://hackathon.ttcloud.net:1026/v1/contextEntities/type/thing/id/thing:xxxxx/attributes/ledr',
                 crossDomain: true,
                 dataType: 'json',
                 data: '{"value":"on","type":"command"}',
                 headers: {'content-type': 'application/json',
                 'accept': 'application/json',
                 'fiware-service': 'edison',
-                'fiware-servicepath': '/edisondemo',
-                'x-auth-token':'915ab22eec4e4a649907f8740bf42940',
+                'fiware-servicepath': 'xxxxx',
+                'x-auth-token':'xxxxxxxxx',
             	}                    
             	}
         		);
